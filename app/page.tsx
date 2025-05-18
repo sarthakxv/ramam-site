@@ -1,8 +1,6 @@
 "use client"
 
 import { Mail, Phone, MapPin } from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -26,6 +24,8 @@ import { useEffect } from "react"
 import HeroSection from "@/components/HeroSection"
 import WorksCarousel from "@/components/WorksCarousel"
 import FloatingNav from "@/components/FloatingNav"
+import Footer from "@/components/footer"
+import AboutSection from "@/components/about-section"
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -45,67 +45,6 @@ export default function Home() {
       </main>
       <Footer />
     </div>
-  )
-}
-
-function AboutSection() {
-  const controls = useAnimation()
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  })
-
-  useEffect(() => {
-    if (inView) {
-      controls.start("visible")
-    }
-  }, [controls, inView])
-
-  return (
-    <motion.section
-      ref={ref}
-      animate={controls}
-      initial="hidden"
-      variants={fadeInUp}
-      id="about"
-      className="py-16 md:py-24 bg-gray-50"
-    >
-      <div className="container px-4 md:px-6">
-        <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
-          <div className="relative h-[300px] rounded-lg overflow-hidden">
-            <Image
-              src="/placeholder.svg?height=300&width=500"
-              alt="Ramam Enterprises team or project"
-              fill
-              className="object-cover"
-            />
-          </div>
-          <div className="space-y-4">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-primary">About Ramam Enterprises</h2>
-            <p>
-              Ramam Enterprises, founded in 2010, is a premier construction and services company dedicated to delivering
-              top-quality solutions for residential and commercial projects. With a focus on innovation and customer
-              satisfaction, we bring construction, design, and maintenance expertise to every project.
-            </p>
-            <p>
-              Our team of skilled professionals is committed to excellence in every aspect of our work. We pride
-              ourselves on our attention to detail, use of quality materials, and adherence to timelines and budgets. At
-              Ramam Enterprises, we don't just build structures; we build relationships based on trust and reliability.
-            </p>
-            <div className="grid grid-cols-2 gap-4 pt-4">
-              <div className="flex flex-col items-center justify-center p-4 bg-white rounded-lg shadow-sm">
-                <h3 className="text-xl font-bold">15+</h3>
-                <p className="text-sm text-center">Years of Experience</p>
-              </div>
-              <div className="flex flex-col items-center justify-center p-4 bg-white rounded-lg shadow-sm">
-                <h3 className="text-xl font-bold">200+</h3>
-                <p className="text-sm text-center">Projects Completed</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </motion.section>
   )
 }
 
@@ -367,36 +306,3 @@ function ContactSection() {
     </motion.section>
   )
 }
-
-function Footer() {
-  return (
-    <footer className="border-t bg-gray-50">
-      <div className="container flex flex-col items-center justify-between gap-4 py-10 md:h-24 md:flex-row md:py-0">
-        <div className="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
-          <Building className="h-6 w-6 text-primary" />
-          <p className="text-center text-sm leading-loose md:text-left">
-            © 2025 Ramam Enterprises. All Rights Reserved.
-          </p>
-        </div>
-        <nav className="flex gap-4 sm:gap-6">
-          <Link href="#home" className="text-sm font-medium hover:text-primary">
-            Home
-          </Link>
-          <Link href="#about" className="text-sm font-medium hover:text-primary">
-            About
-          </Link>
-          <Link href="#services" className="text-sm font-medium hover:text-primary">
-            Services
-          </Link>
-          <Link href="#projects" className="text-sm font-medium hover:text-primary">
-            Projects
-          </Link>
-          <Link href="#contact" className="text-sm font-medium hover:text-primary">
-            Contact
-          </Link>
-        </nav>
-      </div>
-    </footer>
-  )
-}
-
