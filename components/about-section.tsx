@@ -1,4 +1,7 @@
-import { motion, useAnimation, useInView } from "framer-motion"
+"use client"
+
+import { motion, useAnimation } from "framer-motion"
+import { useInView } from "react-intersection-observer"
 import Image from "next/image"
 import { useEffect } from "react"
 
@@ -8,26 +11,26 @@ export default function AboutSection() {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   }
-  // const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true })
+  const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true })
 
-  // useEffect(() => {
-  //   if (inView) {
-  //     controls.start("visible")
-  //   }
-  // }, [controls, inView])
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible")
+    }
+  }, [controls, inView])
 
   return (
     <motion.section
-      // ref={ref}
+      ref={ref}
       animate={controls}
       initial="hidden"
       variants={fadeInUp}
       id="about"
-      className="py-16 md:py-24 bg-gray-50"
+      className="py-16 md:py-24 bg-muted"
     >
       <div className="container px-4 md:px-6">
         <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
-          <div className="relative h-[300px] rounded-lg overflow-hidden">
+          <div className="relative h-[300px] rounded-lg overflow-hidden shadow-md">
             <Image
               src="/placeholder.svg?height=300&width=500"
               alt="Ramam Enterprises team or project"
@@ -48,12 +51,12 @@ export default function AboutSection() {
               Ramam Enterprises, we don't just build structures; we build relationships based on trust and reliability.
             </p>
             <div className="grid grid-cols-2 gap-4 pt-4">
-              <div className="flex flex-col items-center justify-center p-4 bg-white rounded-lg shadow-sm">
-                <h3 className="text-xl font-bold">15+</h3>
+              <div className="flex flex-col items-center justify-center p-4 bg-white rounded-lg shadow-sm border border-gray-100">
+                <h3 className="text-xl font-bold text-primary">15+</h3>
                 <p className="text-sm text-center">Years of Experience</p>
               </div>
-              <div className="flex flex-col items-center justify-center p-4 bg-white rounded-lg shadow-sm">
-                <h3 className="text-xl font-bold">200+</h3>
+              <div className="flex flex-col items-center justify-center p-4 bg-white rounded-lg shadow-sm border border-gray-100">
+                <h3 className="text-xl font-bold text-primary">200+</h3>
                 <p className="text-sm text-center">Projects Completed</p>
               </div>
             </div>
