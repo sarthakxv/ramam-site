@@ -6,10 +6,9 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Ramam Enterprises - Your Trusted Construction Partner",
-  description:
-    "Ramam Enterprises is a premier construction and services company based in Indore, India, dedicated to delivering top-quality solutions for residential and commercial projects.",
-    generator: 'v0.dev'
+  title: META.title,
+  description: META.description,
+  keywords: META.keywords,
 }
 
 export default function RootLayout({
@@ -27,3 +26,4 @@ export default function RootLayout({
 
 
 import './globals.css'
+import { META } from "@/lib/meta"
