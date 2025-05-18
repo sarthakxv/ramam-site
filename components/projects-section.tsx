@@ -38,7 +38,7 @@ export default function ProjectsSection() {
           <WorksCarousel />
         </div>
         <div className="flex justify-center mt-8">
-          <Button variant="outline" size="lg" className="cta-button-outline">
+          <Button variant="outline" size="lg" className="btn-primary-outline">
             Request a Consultation
           </Button>
         </div>

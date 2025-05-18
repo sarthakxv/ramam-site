@@ -67,6 +67,9 @@ module.exports = {
           to: { height: 0 },
         },
       },
+      backgroundImage: {
+        hero: "linear-gradient(180deg, hsl(var(--secondary) / 0.25) 0%, hsl(var(--accent) / 0.20) 45%, hsl(var(--primary) / 0.25) 100%)"
+      },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",

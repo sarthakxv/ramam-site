@@ -4,48 +4,39 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 210 100% 25%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 45 100% 50%;
-    --secondary-foreground: 210 20% 15%;
-    --muted: 36 30% 90%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 30 50% 50%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 210 100% 25%;
-    --radius: 0.5rem;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 100% 30%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 45 80% 45%;
+    /* ---------- Base ---------- */
+    --background: 34 44% 95%;      /* light Sandstone for a warm canvas */
+    --foreground: 30 39% 21%;      /* Soil Brown – high-contrast body text */
+  
+    /* ---------- Surfaces ---------- */
+    --card: 34 44% 95%;            /* Sandstone */
+    --card-foreground: 30 39% 21%; /* Soil Brown */
+  
+    --popover: 34 44% 95%;
+    --popover-foreground: 30 39% 21%;
+  
+    /* ---------- Brand & accents ---------- */
+    --primary: 19 81% 42%;         /* Terracotta */
+    --primary-foreground: 0 0% 100%; /* white text on Terracotta */
+  
+    --secondary: 44 100% 39%;      /* Golden Ochre */
     --secondary-foreground: 0 0% 100%;
-    --muted: 36 30% 20%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 30 50% 35%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 210 100% 30%;
+  
+    --accent: 82 39% 30%;          /* Olive Drab */
+    --accent-foreground: 0 0% 100%;
+  
+    /* ---------- Supporting ---------- */
+    --muted: 56 14% 55%;           /* Sage */
+    --muted-foreground: 30 39% 21%;
+  
+    --destructive: 14 78% 62%;     /* Burnt Sienna (warm warning/error) */
+    --destructive-foreground: 0 0% 100%;
+  
+    --border: 28 22% 42%;          /* Clay Taupe */
+    --input: 28 22% 42%;           /* same as border for consistency */
+    --ring: 19 81% 42%;            /* match primary for focus rings */
+  
+    --radius: 0.5rem;
   }
 }
 
@@ -92,8 +83,40 @@
   transform: translateY(0);
 }
 
+
+/* ----- CTA buttons (re-usable) ----- */
+.btn-primary {
+  @apply bg-primary text-primary-foreground font-semibold rounded-full px-6 py-3
+          shadow-md transition-transform duration-300 ease-in-out
+          focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40;
+}
+
+.btn-primary:hover {
+  @apply bg-primary/90 -translate-y-1;
+}
+
+.btn-primary:active {
+  @apply translate-y-0 shadow-lg;
+}
+
+.btn-outline {
+  @apply border-2 border-primary bg-transparent text-white font-semibold
+          rounded-full px-6 py-3 transition-transform duration-300 ease-in-out
+          focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40;
+}
+
+.btn-outline:hover {
+  @apply bg-primary text-primary-foreground -translate-y-1;
+}
+
+.btn-outline:active {
+  @apply translate-y-0 shadow-md;
+}
+
+/* ----- CTA buttons (re-usable) ----- */
+
 .cta-button {
-  @apply bg-primary text-white font-bold py-2 px-6 rounded-full transition-all duration-300 ease-in-out;
+  @apply bg-background text-white font-bold py-2 px-6 rounded-full transition-all duration-300 ease-in-out;
   box-shadow: 0 4px 6px rgba(0, 42, 85, 0.35);
 }
 

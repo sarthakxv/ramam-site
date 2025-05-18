@@ -104,7 +104,7 @@ export default function ContactSection() {
                 <Textarea id="message" placeholder="Enter your message" className="min-h-[150px]" />
               </div>
             </div>
-            <Button className="w-full cta-button" size="lg">
+            <Button className="w-full btn-primary" size="lg">
               Send Message
             </Button>
           </div>

@@ -8,7 +8,7 @@ import Image from "next/image"
 const FloatingNav: React.FC = () => {
   return (
     <motion.nav
-      className="fixed top-[20px] left-1/2 right-0 my-0 mx-auto max-w-fit -translate-x-1/2 bg-white/90 rounded-full py-2.5 px-6 z-50 shadow-md border border-gray-100"
+      className="fixed top-[20px] left-0 right-0 my-0 mx-auto max-w-fit -translate-x-1/2 bg-white/90 rounded-full py-2.5 px-6 z-50 shadow-md border"
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, delay: 0.5 }}
